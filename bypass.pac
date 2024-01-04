@@ -6,5 +6,5 @@ function FindProxyForURL(url, host) {
     }
 
     // Use the proxy for all other URLs
-    return "http://proxy.packetstream.io:31112";
+    return "PROXY proxy.packetstream.io:31112";
 }
