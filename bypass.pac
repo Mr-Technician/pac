@@ -1,15 +1,9 @@
 function FindProxyForURL(url, host) {
-    // Bypass the proxy for URLs that match the specific path'
-    alert(url);
-    if (url.indexOf("ipv4.icanhazip.com") !== -1
-    || url.indexOf("freeipapi.com") !== -1
-    || url.indexOf("www.amtrak.com/etc/designs") !== -1
-    || url.indexOf("www.amtrak.com/akam") !== -1
-    || url.indexOf("www.amtrak.com/services") !== -1
-    ) {
+    // Do not use proxy for .js and .json files
+    if (shExpMatch(url, "*.js") || shExpMatch(url, "*.json")) {
         return "DIRECT";
     }
 
-    // Use the proxy for all other URLs
+    // Use proxy for all other requests
     return "PROXY proxy.packetstream.io:31112";
 }
